@@ -1,0 +1,28 @@
+
+mysql_local: &mysql_local
+  adapter: mysql2
+  username: <%= ENV['TRAVIS'] ? 'travis' : 'root' %>
+  host:     localhost
+
+mysql: &mysql
+  adapter: mysql2
+  url: <%= ENV["DATABASE_URL"] %>
+
+defaults: &defaults
+  pool: 10 
+  timeout: 5000
+  encoding: utf8
+
+development:
+  <<: *defaults
+  <<: *mysql_local
+  database: parkez
+
+test: &test
+  <<: *defaults
+  <<: *mysql_local
+  database: <%= ENV['TRAVIS'] ? 'myapp_test' : 'parkez-test' %>
+
+production:
+  <<: *defaults
+  <<: *mysql
