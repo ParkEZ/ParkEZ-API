@@ -13,5 +13,6 @@ services:
       - db
     environment:
       - POSTGRES_DB=parkez
+      - DB_HOST=db
     volumes:
       - .:/app

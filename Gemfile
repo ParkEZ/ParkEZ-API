@@ -16,7 +16,6 @@ gem 'active_model_serializers', '~> 0.10.0.rc4'
 gem 'omniauth', '>= 1.0.0'
 gem 'devise', github: 'plataformatec/devise'
 gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth'
-
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
@@ -28,6 +27,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
