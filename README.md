@@ -30,6 +30,7 @@ If running the rails server outside of docker and/or Heroku (both of these take 
 Copy `.env.example` to `.env` and add the ip or hostname of the development postgres server. **DO NOT** store this in Git. For now, nothing sensitive is in it, but that may change.
 
 Then just work as you would.
+
 [android app]: https://github.com/CUNYTech/ParkEZ-Android
 [docker]: https://docs.docker.com/engine/installation/linux/ubuntulinux/
 [docker-compose]: https://docs.docker.com/compose/install/
