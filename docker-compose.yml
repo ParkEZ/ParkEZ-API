@@ -3,17 +3,14 @@ services:
   db:
     image: mdillon/postgis:9.5
     ports:
-      - "5432:5432"
+      - "0.0.0.0:5432:5432"
   web:
     build: .
     ports:
-      - "3000:3000"
+      - "0.0.0.0:3000:3000"
     depends_on:
       - db
-      - data
     environment:
       - POSTGRES_DB=parkez
-  data:
-    image: busybox
     volumes:
       - .:/app
