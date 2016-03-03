@@ -1,12 +1,12 @@
 
-mysql_local: &mysql_local
-  adapter: mysql2
+pg_local: &pg_local
+  adapter: postgis 
   username: <%= ENV['TRAVIS'] ? 'travis' : 'root' %>
   host:     localhost
 
-mysql: &mysql
-  adapter: mysql2
-  url: <%= ENV["DATABASE_URL"] %>
+pg: &pg
+  adapter: postgis 
+  encoding: unicode
 
 defaults: &defaults
   pool: 10 
@@ -15,14 +15,19 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  <<: *mysql_local
+  <<: *pg_local
   database: parkez
 
 test: &test
   <<: *defaults
-  <<: *mysql_local
+  <<: *pg_local
   database: <%= ENV['TRAVIS'] ? 'myapp_test' : 'parkez-test' %>
 
 production:
   <<: *defaults
-  <<: *mysql
+  <<: *pg
+  database: <%= ENV["DATABASE"] %> 
+  username: <%= ENV["DATABASE_USER"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  host: <%= ENV["DATABASE_HOST"] %>
+
