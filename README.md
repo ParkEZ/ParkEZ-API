@@ -10,6 +10,11 @@ The query used to find the closest parking spot, and the code to add the index f
 
 ### Bootstrapping your development environment
 
+#### OSX and Windows Users
+
+Docker depends on low-level functionality within the Linux kernel, and it does not work natively on Windows or Mac OSX. Fear not, [docker toolbox](https://www.docker.com/products/docker-toolbox) provides a seamless experience via a virtual machine. Install that and everything should be smooth sailing from there.
+
+
 Ruby is obviously needed. I recommend [rvm][] for managing ruby versions.
 
 So that people don't have to spend time installing stuff I dockerized the
