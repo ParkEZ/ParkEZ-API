@@ -19,10 +19,10 @@ Download [docker][] and [docker-compose][]. The choice to use docker was that it
 
 Once you have done this:
 
-simply type:
+simply type (or copy/paste):
 
-```sh
-$ docker-compose up -d
+```bash
+$ docker-compose build web && docker-compose up -d
 ```
 
 Then just work as you would.
