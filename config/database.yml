@@ -1,8 +1,7 @@
-
 pg_local: &pg_local
   adapter: postgresql
-  username: <%= ENV['TRAVIS'] ? 'travis' : 'postgresql' %>
-  host:     localhost
+  username: <%= ENV['TRAVIS'] ? 'travis' : 'postgres' %>
+  host: db 
 
 pg: &pg
   adapter: postgresql
