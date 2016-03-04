@@ -2,6 +2,7 @@ module Api
   module V1
     class ParkingLocationsController < ApplicationController
       before_action :set_parking_location, only: [:show, :update, :destroy]
+      before_action :authenticate_api_v1_user!
 
       # GET /parking_locations
       def index
