@@ -6,7 +6,7 @@ module Api
 
       # GET /parking_locations
       def index
-        @parking_locations = ParkingLocations.all
+        @parking_locations = ParkingLocation.all
 
         render json: @parking_locations
       end
@@ -18,7 +18,7 @@ module Api
 
       # POST /parking_locations
       def create
-        @parking_location = ParkingLocations.new(parking_location_params)
+        @parking_location = ParkingLocation.new(parking_location_params)
 
         if @parking_location.save
           render json: @parking_location, status: :created, location: @parking_location
@@ -45,7 +45,7 @@ module Api
 
       # Use callbacks to share common setup or constraints between actions.
       def set_parking_location
-        @parking_location = ParkingLocations.find(params[:id])
+        @parking_location = ParkingLocation.find(params[:id])
       end
 
       # Only allow a trusted parameter "white list" through.
