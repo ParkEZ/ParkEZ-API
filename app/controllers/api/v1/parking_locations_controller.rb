@@ -50,7 +50,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def parking_location_params
-        params.require(:parking_location).permit(:lat, :long, :status)
+        params.require(:parking_location).permit(:latitude, :longitude, :status)
       end
     end
   end
