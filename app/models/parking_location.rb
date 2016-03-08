@@ -7,7 +7,7 @@ class ParkingLocation < ApplicationRecord
                                         less_than_or_equal_to: 180 }, presence: true
   validates :status, inclusion: { in: %w(free occupied),
                                   message: '%{value} is not a valid status' }, allow_nil: false
-
+  validates :user, associated: true
   scope :close_to, lambda { |latitude, longitude, distance_in_meters = 2000|
     where(%{
     ST_DWithin(

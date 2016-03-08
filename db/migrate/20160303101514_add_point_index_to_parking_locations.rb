@@ -7,7 +7,7 @@ class AddPointIndexToParkingLocations < ActiveRecord::Migration[5.0]
         )
       )
     }
-   end
+  end
 
   def down
     execute %(drop index index_on_parking_location)
