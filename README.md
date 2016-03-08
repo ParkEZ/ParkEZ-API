@@ -1,4 +1,5 @@
 ## Park EZ API
+[![Code Climate](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/gpa.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API) [![Issue Count](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/issue_count.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API)
 
 This is solely a REST API. The [android app][] talks to this.
 
