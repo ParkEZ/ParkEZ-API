@@ -1,0 +1,42 @@
+---
+engines:
+  brakeman:
+    enabled: true
+  bundler-audit:
+    enabled: true
+    exclude_fingerprints:
+      - 85d5335dc803290f925fee032a5347c3
+      - a3263e7bfdbe5be475ee7f4cee9bd193
+      - c59e13fed829bd7b382ff41d34c2ccb2
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+ratings:
+  paths:
+  - Gemfile.lock
+  - "**.erb"
+  - "**.rb"
+  - "/lib/tasks/*.rb"
+exclude_paths:
+- Gemfile
+- config/
+- db/
+- spec/
+- test/
+- vendor/
+- bin/
+- public/
+- Dockerfile
+- docker-compose.yml
+- config.ru
+- .gitignore
+- Procfile
+- README.md
+- Rakefile
