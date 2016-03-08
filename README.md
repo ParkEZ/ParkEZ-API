@@ -27,10 +27,13 @@ Once you have done this:
 simply type (or copy/paste):
 
 ```bash
-$ docker-compose build web && docker-compose up -d
+$ docker-compose build web && docker-compose up -d ; bundle exec rake db:create db:migate
 ```
 
-If running the rails server outside of docker and/or Heroku (both of these take care of this detail): 
+The last commands only need to be run initially and when schema changes occur.
+
+
+If running the rails server outside of docker and/or Heroku (both of these take care of this detail):
 
 Copy `.env.example` to `.env` and add the ip or hostname of the development postgres server. **DO NOT** store this in Git. For now, nothing sensitive is in it, but that may change.
 
