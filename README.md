@@ -1,5 +1,5 @@
 ## Park EZ API
-[![Code Climate](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/gpa.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API) [![Issue Count](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/issue_count.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API)
+[![Code Climate](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/gpa.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API) [![Issue Count](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/issue_count.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API) [![codebeat badge](https://codebeat.co/badges/c85850fb-002f-4a88-8bf3-ba4916799cfd)](https://codebeat.co/projects/github-com-cunytech-parkez-api)
 
 This is solely a REST API. The [android app][] talks to this.
 
