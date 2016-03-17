@@ -20,7 +20,7 @@ development:
 test: &test
   <<: *defaults
   <<: *pg_local
-  database: <%= ENV['TRAVIS'] ? 'myapp_test' : 'parkez-test' %>
+  database: <%= ENV['TRAVIS'] ? 'parkez_test' : 'parkez-test' %>
 
 production:
   <<: *defaults
