@@ -10,7 +10,7 @@ before_script:
 - psql -c 'create database parkez_test;' -U postgres
 - bundle exec rake db:create db:migrate
 bundler_args: "--without development"
-script: bundle exec rspec
+script: bundle exec rspec --options .rspec
 notifications:
   email: false
   slack:
