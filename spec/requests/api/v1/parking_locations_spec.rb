@@ -7,6 +7,10 @@ RSpec.describe Api::V1::ParkingLocationsController do
         get '/api/v1/parking_locations'
         expect(response).to be_unauthorized
       end
+      it "does not allow unauthenticated users to report new spots" do
+        post '/api/v1/parking_locations', params: { "parking_location": { latitude: 0.0, longitude: 0.0, status: 'free' }}
+        expect(response).to be_unauthorized
+      end
     end
   end
   context 'authenticated' do
