@@ -3,8 +3,6 @@ module Api
     class ParkingLocationsController < ApplicationController
       before_action :set_parking_location, only: [:show, :update, :destroy]
       before_action :authenticate_api_v1_user!
-      before_action :set_created_by, only: [:create]
-      before_action :set_updated_by, only: [:update]
 
       # GET /parking_locations
       def index
@@ -20,7 +18,8 @@ module Api
 
       # POST /parking_locations
       def create
-        @parking_location = current_api_v1_user.parking_locations.build(parking_location_params)
+        @parking_location = ParkingLocation.create(parking_location_params)
+        @parking_location.created_by = current_api_v1_user.id
         if @parking_location.save
           render json: @parking_location, status: :created
         else
