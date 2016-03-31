@@ -70,7 +70,9 @@ CREATE TABLE parking_locations (
     status character varying,
     user_id integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    created_by integer,
+    updated_by integer
 );
 
 
@@ -245,6 +247,6 @@ CREATE UNIQUE INDEX index_users_on_unlock_token ON users USING btree (unlock_tok
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20160302035713'), ('20160302040832'), ('20160303100202'), ('20160303101514');
+INSERT INTO schema_migrations (version) VALUES ('20160302035713'), ('20160302040832'), ('20160303100202'), ('20160303101514'), ('20160331022025');
 
 

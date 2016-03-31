@@ -3,6 +3,8 @@ module Api
     class ParkingLocationsController < ApplicationController
       before_action :set_parking_location, only: [:show, :update, :destroy]
       before_action :authenticate_api_v1_user!
+      before_action :set_created_by, only: [:create]
+      before_action :set_updated_by, only: [:update]
 
       # GET /parking_locations
       def index
@@ -18,10 +20,9 @@ module Api
 
       # POST /parking_locations
       def create
-        @parking_location = ParkingLocation.new(parking_location_params)
-
+        @parking_location = current_api_v1_user.parking_locations.build(parking_location_params)
         if @parking_location.save
-          render json: @parking_location, status: :created, location: @parking_location
+          render json: @parking_location, status: :created
         else
           render json: @parking_location.errors, status: :unprocessable_entity
         end
@@ -46,6 +47,14 @@ module Api
       # Use callbacks to share common setup or constraints between actions.
       def set_parking_location
         @parking_location = ParkingLocation.find(params[:id])
+      end
+
+      def set_created_by
+        @parking_location.created_by = current_api_v1_user.id
+      end
+
+      def set_updated_by
+        @parking_location.updated_by = current_api_v1_user.id
       end
 
       # Only allow a trusted parameter "white list" through.
