@@ -9,7 +9,6 @@ RSpec.describe ParkingLocation, type: :model do
     expect(parking_location).to_not be_valid
   end
 
-
   it 'is not valid with a longitude less than -180' do
     parking_location = FactoryGirl.build(:parking_location, longitude: -181)
     expect(parking_location).to_not be_valid
