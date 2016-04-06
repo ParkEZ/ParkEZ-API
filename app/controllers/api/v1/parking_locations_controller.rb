@@ -7,7 +7,6 @@ module Api
       # GET /parking_locations
       def index
         @parking_locations = ParkingLocation.all
-
         render json: @parking_locations
       end
 
@@ -39,6 +38,10 @@ module Api
       # DELETE /parking_locations/1
       def destroy
         @parking_location.destroy
+      end
+
+      def available_spots
+        render json: ParkingLocation.close_to(params[:latitude], params[:longitude]).available.load
       end
 
       private

@@ -17,8 +17,9 @@ class ParkingLocation < ApplicationRecord
       ST_GeographyFromText('SRID=4326;POINT(%f %f)'),
       %d
     )
-  } % [longitude, latitude, distance_in_meters])
+  } % [longitude, latitude, _distance_in_meters])
   }
 
+  scope :available, -> { where(status: 'free') }
   belongs_to :user
 end
