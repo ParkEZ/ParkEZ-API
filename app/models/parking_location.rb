@@ -8,7 +8,7 @@ class ParkingLocation < ApplicationRecord
   validates :status, inclusion: { in: %w(free occupied),
                                   message: '%{value} is not a valid status' }, allow_nil: false
   validates :user, associated: true
-  scope :close_to, lambda { |latitude, longitude, distance_in_meters = 2000|
+  scope :close_to, lambda { |latitude, longitude, _distance_in_meters = 2000|
     where(%{
     ST_DWithin(
       ST_GeographyFromText(
