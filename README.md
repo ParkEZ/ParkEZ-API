@@ -1,5 +1,5 @@
 ## Park EZ API
-[![Build Status](https://travis-ci.org/CUNYTech/ParkEZ-API.svg?branch=master)](https://travis-ci.org/CUNYTech/ParkEZ-API) [![Code Climate](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/gpa.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API) [![Issue Count](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/issue_count.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API) [![codebeat badge](https://codebeat.co/badges/c85850fb-002f-4a88-8bf3-ba4916799cfd)](https://codebeat.co/projects/github-com-cunytech-parkez-api)
+[![Build Status](https://travis-ci.org/CUNYTech/ParkEZ-API.svg?branch=master)](https://travis-ci.org/CUNYTech/ParkEZ-API) [![Code Climate](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/gpa.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API) [![Issue Count](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/issue_count.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API) [![codebeat badge](https://codebeat.co/badges/c85850fb-002f-4a88-8bf3-ba4916799cfd)](https://codebeat.co/projects/github-com-cunytech-parkez-api) [![Codacy Badge](https://api.codacy.com/project/badge/grade/49e8156f06534c298d508671385150cb)](https://www.codacy.com/app/robby-oconnor/ParkEZ-API)
 
 This is solely a REST API. The [android app][] talks to this.
 
