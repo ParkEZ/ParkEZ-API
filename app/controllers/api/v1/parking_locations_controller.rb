@@ -47,6 +47,14 @@ module Api
         render json: ParkingLocation.close_to(params[:latitude], params[:longitude]).available.load
       end
 
+      def check_out
+        ParkingLocation.checked_in(current_api_v1_user).load.map do |p|
+          p.user_id = nil
+          p.status = 'free'
+          p.save
+        end
+      end
+
       private
 
       # Use callbacks to share common setup or constraints between actions.

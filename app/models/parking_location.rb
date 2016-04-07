@@ -8,7 +8,7 @@ class ParkingLocation < ApplicationRecord
   validates :status, inclusion: { in: %w(free occupied),
                                   message: '%{value} is not a valid status' }, allow_nil: false
   validates :user, associated: true
-  scope :close_to, lambda { |latitude, longitude, _distance_in_meters = 2000|
+  scope :close_to, lambda { |latitude, longitude, distance_in_meters = 2000|
     where(%{
     ST_DWithin(
       ST_GeographyFromText(
@@ -17,9 +17,10 @@ class ParkingLocation < ApplicationRecord
       ST_GeographyFromText('SRID=4326;POINT(%f %f)'),
       %d
     )
-  } % [longitude, latitude, _distance_in_meters])
+  } % [longitude, latitude, distance_in_meters])
   }
 
   scope :available, -> { where(status: 'free') }
+  scope :checked_in, ->(user) { where(status: 'occupied', user_id: user.id) }
   belongs_to :user
 end

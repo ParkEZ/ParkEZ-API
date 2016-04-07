@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'User', at: 'auth'
       resources :parking_locations
       post '/spots', to: 'parking_locations#available_spots', as: 'available_parking_spots'
+      delete '/check_out', to: 'parking_locations#check_out', as: 'check_out'
     end
   end
 
