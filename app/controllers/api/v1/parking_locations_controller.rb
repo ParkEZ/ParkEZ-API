@@ -28,7 +28,10 @@ module Api
 
       # PATCH/PUT /parking_locations/1
       def update
+        @parking_location.user_id = current_api_v1_user.id if params[:status] == 'occupied'
+        @parking_location.user_id = nil if params[:status] == 'free'
         if @parking_location.update(parking_location_params)
+          puts @parking_location.to_json
           render json: @parking_location
         else
           render json: @parking_location.errors, status: :unprocessable_entity
