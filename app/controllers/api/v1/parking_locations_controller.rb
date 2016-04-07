@@ -3,6 +3,8 @@ module Api
     class ParkingLocationsController < ApplicationController
       before_action :set_parking_location, only: [:show, :update, :destroy]
       before_action :authenticate_api_v1_user!
+      before_action :set_user_for_check_in, only: [:update]
+      before_action :clear_user_on_check_out, only: [:update]
 
       # GET /parking_locations
       def index
@@ -28,8 +30,6 @@ module Api
 
       # PATCH/PUT /parking_locations/1
       def update
-        @parking_location.user_id = current_api_v1_user.id if params[:status] == 'occupied'
-        @parking_location.user_id = nil if params[:status] == 'free'
         if @parking_location.update(parking_location_params)
           puts @parking_location.to_json
           render json: @parking_location
@@ -57,6 +57,13 @@ module Api
 
       private
 
+      def set_user_for_check_in
+        @parking_location.user_id = current_api_v1_user.id if params[:status] == 'occupied'
+      end
+
+      def clear_user_on_check_out
+        @parking_location.user_id = nil if params[:status] == 'free'
+      end
       # Use callbacks to share common setup or constraints between actions.
       def set_parking_location
         @parking_location = ParkingLocation.find(params[:id])
