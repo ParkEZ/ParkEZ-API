@@ -64,6 +64,7 @@ module Api
       def clear_user_on_check_out
         @parking_location.user_id = nil if params[:status] == 'free'
       end
+
       # Use callbacks to share common setup or constraints between actions.
       def set_parking_location
         @parking_location = ParkingLocation.find(params[:id])
