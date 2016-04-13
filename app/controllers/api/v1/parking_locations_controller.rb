@@ -30,8 +30,8 @@ module Api
 
       # PATCH/PUT /parking_locations/1
       def update
+        @parking_location.updated_by = current_api_v1_user.id
         if @parking_location.update(parking_location_params)
-          puts @parking_location.to_json
           render json: @parking_location
         else
           render json: @parking_location.errors, status: :unprocessable_entity
@@ -44,11 +44,15 @@ module Api
       end
 
       def available_spots
-        render json: ParkingLocation.close_to(params[:latitude], params[:longitude]).available.load
+        if params[:show_occupied]
+          render json: ParkingLocations.close_to(params[:latitude], params[:longitude], params[:radius] || 2000).load
+        else
+          render json: ParkingLocation.close_to(params[:latitude], params[:longitude], params[:radius] || 2000).available.load
+        end
       end
 
       def check_out
-        ParkingLocation.checked_in(current_api_v1_user).load.map do |p|
+        ParkingLocation.unavailable.checked_in(current_api_v1_user).load.map do |p|
           p.user_id = nil
           p.status = 'free'
           p.save

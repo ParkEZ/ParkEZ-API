@@ -21,6 +21,7 @@ class ParkingLocation < ApplicationRecord
   }
 
   scope :available, -> { where(status: 'free') }
-  scope :checked_in, ->(user) { where(status: 'occupied', user_id: user.id) }
+  scope :checked_in, ->(user) { where(user_id: user.id) }
+  scope :unavailable, -> { where(status: 'occupied') }
   belongs_to :user
 end
