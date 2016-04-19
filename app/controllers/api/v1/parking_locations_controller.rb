@@ -44,11 +44,11 @@ module Api
       end
 
       def available_spots
-        if params[:show_occupied]
-          render json: ParkingLocations.close_to(params[:latitude], params[:longitude], params[:radius] || 2000).load
-        else
-          render json: ParkingLocation.close_to(params[:latitude], params[:longitude], params[:radius] || 2000).available.load
-        end
+        render json: ParkingLocation.close_to(params[:latitude], params[:longitude], params[:radius] || 2000).available.load
+      end
+
+      def all_spots
+        render json: ParkingLocations.close_to(params[:latitude], params[:longitude], params[:radius] || 2000).load
       end
 
       def check_out
