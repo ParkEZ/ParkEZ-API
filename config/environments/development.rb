@@ -17,6 +17,7 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
 
     config.action_mailer.perform_caching = false
+    config.action_mailer.perform_deliveries = false
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
