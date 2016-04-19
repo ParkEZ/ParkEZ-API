@@ -20,6 +20,7 @@ engines:
     enabled: true
     exclude_fingerprints:
       - 87743ef3b915871e147bdbc8af9ee226
+      - 77dc472f026f8f285a14592f95faf8e0
 ratings:
   paths:
   - Gemfile.lock
