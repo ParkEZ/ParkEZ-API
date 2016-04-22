@@ -1,5 +1,5 @@
 ## Park EZ API
-[![Build Status](https://travis-ci.org/CUNYTech/ParkEZ-API.svg?branch=master)](https://travis-ci.org/CUNYTech/ParkEZ-API) [![Code Climate](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/gpa.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API) [![Issue Count](https://codeclimate.com/github/CUNYTech/ParkEZ-API/badges/issue_count.svg)](https://codeclimate.com/github/CUNYTech/ParkEZ-API) [![codebeat badge](https://codebeat.co/badges/c85850fb-002f-4a88-8bf3-ba4916799cfd)](https://codebeat.co/projects/github-com-cunytech-parkez-api) [![Codacy Badge](https://api.codacy.com/project/badge/grade/49e8156f06534c298d508671385150cb)](https://www.codacy.com/app/robby-oconnor/ParkEZ-API)
+[![Build Status](https://travis-ci.org/ParkEZ/ParkEZ-API.svg?branch=master)](https://travis-ci.org/ParkEZ/ParkEZ-API) [![Code Climate](https://codeclimate.com/github/ParkEZ/ParkEZ-API/badges/gpa.svg)](https://codeclimate.com/github/ParkEZ/ParkEZ-API) [![Issue Count](https://codeclimate.com/github/ParkEZ/ParkEZ-API/badges/issue_count.svg)](https://codeclimate.com/github/ParkEZ/ParkEZ-API) [![codebeat badge](https://codebeat.co/badges/9a80c62c-eaff-4db9-b82c-4d2bae760a8d)](https://codebeat.co/projects/github-com-parkez-parkez-api) [![Codacy Badge](https://api.codacy.com/project/badge/grade/49e8156f06534c298d508671385150cb)](https://www.codacy.com/app/robby-oconnor/ParkEZ-API)
 
 This is solely a REST API. The [android app][] talks to this.
 
@@ -40,7 +40,7 @@ Copy `.env.example` to `.env` and add the ip or hostname of the development post
 
 Then just work as you would.
 
-[android app]: https://github.com/CUNYTech/ParkEZ-Android
+[android app]: https://github.com/ParkEZ/ParkEZ-Android
 [docker]: https://docs.docker.com/engine/installation/linux/ubuntulinux/
 [docker-compose]: https://docs.docker.com/compose/install/
 [rvm]: http://rvm.io/rvm/install
