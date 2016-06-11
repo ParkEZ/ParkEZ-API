@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.2.4'
-
 gem 'pg'
 
 gem 'rails', github: 'rails/rails'
