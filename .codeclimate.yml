@@ -23,12 +23,12 @@ engines:
       - 77dc472f026f8f285a14592f95faf8e0
 ratings:
   paths:
-  - Gemfile.lock
   - "**.erb"
   - "**.rb"
   - "/lib/tasks/*.rb"
 exclude_paths:
 - Gemfile
+- Gemfile.lock
 - config/
 - db/
 - spec/
