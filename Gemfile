@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-gem 'pg'
+gem 'pg', '~> 0.18.4'
 
-gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.0.0'
 
 # Use Puma as the app server
 gem 'puma'
@@ -11,24 +11,24 @@ gem 'puma'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'active_model_serializers', '~> 0.10.0.rc4'
-gem 'omniauth', '>= 1.0.0'
 gem 'devise', github: 'plataformatec/devise'
 gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth'
+gem 'omniauth', '>= 1.0.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-gem 'rails_12factor', group: :production
+gem 'database_cleaner'
+gem 'factory_bot_rails'
 gem 'faker'
 gem 'foreman'
-gem 'factory_girl_rails'
-gem 'database_cleaner'
+gem 'rails_12factor', group: :production
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'dotenv-rails'
   gem 'pry'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'dotenv-rails'
 end
 
 group :development do
@@ -39,4 +39,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

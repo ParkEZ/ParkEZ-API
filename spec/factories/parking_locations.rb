@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :parking_location do
     sequence(:id) { |id| id }
     latitude { Faker::Address.latitude }
