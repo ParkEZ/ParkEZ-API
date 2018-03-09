@@ -1,29 +1,23 @@
-FROM ruby:2.2-alpine
-RUN apk add --update \
+FROM ruby:2.4-alpine
+
+RUN apk add --update --no-cache \
+  yarn \
+  gosu \
+  bash \
+  curl \
+  openssl \
   build-base \
   libxml2-dev \
   libxslt-dev \
   postgresql-dev \
+  python \
+  perl \
   git \
   tzdata \
-  && rm -rf /var/cache/apk/* \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/community/ \
   && addgroup parkez \
   && adduser -s /bin/bash -D -G parkez parkez
-
-ENV GOSU_VERSION 1.9
-RUN set -x \
-    && apk add --no-cache --virtual .gosu-deps \
-        dpkg \
-        gnupg \
-    && wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)" \
-    && wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture).asc" \
-    && export GNUPGHOME="$(mktemp -d)" \
-    && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 \
-    && gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu \
-    && rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc \
-    && chmod +x /usr/local/bin/gosu \
-    && gosu nobody true \
-    && apk del .gosu-deps
 
 RUN mkdir /app
 WORKDIR /app
@@ -33,9 +27,9 @@ ADD . /app
 RUN wget https://github.com/jwilder/dockerize/releases/download/v0.2.0/dockerize-linux-amd64-v0.2.0.tar.gz \
 && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v0.2.0.tar.gz
 RUN bundle config build.nokogiri --use-system-libraries \
+&& bundle config git.allow_insecure true \
 && bundle install
 
 EXPOSE 3000
 
 CMD ["gosu", "parkez", "dockerize", "-wait", "tcp://db:5432", "bundle", "exec", "rails", "s"]
-
