@@ -18,7 +18,8 @@ gem 'omniauth', '>= 1.0.0'
 gem 'rack-cors'
 
 gem 'database_cleaner'
-gem 'factory_bot_rails'
+
+gem 'factory_bot_rails', "~> 4.0"
 gem 'faker'
 gem 'foreman'
 gem 'rails_12factor', group: :production

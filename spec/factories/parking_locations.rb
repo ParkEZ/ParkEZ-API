@@ -3,6 +3,7 @@ FactoryBot.define do
     sequence(:id) { |id| id }
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }
-    status { %w(free occupied).sample }
+    status { %w[free occupied].sample }
+    association :user, factory: :user
   end
 end
